@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 41103239}
   - component: {fileID: 41103241}
   - component: {fileID: 41103240}
+  - component: {fileID: 41103242}
   m_Layer: 5
   m_Name: Resources
   m_TagString: Untagged
@@ -195,6 +196,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41103238}
   m_CullTransparentMesh: 0
+--- !u!114 &41103242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41103238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ce30b54a4d03b48a21d7368b5030a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: 100
+  electricity: 100
+  foodBar: {fileID: 255385402}
+  electricityBar: {fileID: 1140326404}
 --- !u!1 &55790283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1019,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -1777,8 +1794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  food: 100
-  oxygen: 10
+  food: 0
+  oxygen: 100
   waste: 0
   carbonDioxyde: 0
   mass: 0
@@ -1787,6 +1804,7 @@ MonoBehaviour:
   carbonDioxydeBar: {fileID: 2024139746}
   healthBar: {fileID: 183676993}
   massBar: {fileID: 2102380692}
+  resources: {fileID: 41103238}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,7 +2893,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:

@@ -18,10 +18,15 @@ public class Foetus : MonoBehaviour
     public Slider healthBar;
     public Slider massBar;
 
+    public GameObject resources;
+
+    private Resources resourcesScript;
+
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("UpdateStats", 0, 1f);
+        resourcesScript = resources.GetComponent<Resources>();
     }
 
     void FixedUpdate()
@@ -38,6 +43,8 @@ public class Foetus : MonoBehaviour
     void UpdateStats()
     {
         food -= 1;
+        if (food < 100)
+            food += resourcesScript.TakeFood(2);
         oxygen -= 1;
 
         if (food > 0)
