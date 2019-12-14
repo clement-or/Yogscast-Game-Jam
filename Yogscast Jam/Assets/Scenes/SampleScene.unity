@@ -212,8 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 100
   electricity: 100
-  carbonDioxyde: 0
-  waste: 30
+  carbonDioxyde: 30
+  waste: 0
   foodBar: {fileID: 255385402}
   electricityBar: {fileID: 1140326404}
   wasteBar: {fileID: 604602046}

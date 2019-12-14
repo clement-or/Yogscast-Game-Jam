@@ -25,7 +25,7 @@ public class Foetus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateStats", 0, 1f);
+        InvokeRepeating("UpdateStats", 0, 2f);
         resourcesScript = resources.GetComponent<Resources>();
     }
 
@@ -49,7 +49,7 @@ public class Foetus : MonoBehaviour
 
         if (food > 0)
             waste++;
-        if (food > 70)
+        if (food > 50)
             mass++;
         if (food < 20)
         {

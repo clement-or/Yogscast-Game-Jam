@@ -93,6 +93,22 @@ public class MachineControls : MonoBehaviour
 
     IEnumerator RemoveCoroutine()
     {
-        yield return null;
+        produce.interactable = false;
+        recycle.interactable = false;
+
+        Color originColor = produce.GetComponent<Image>().color;
+        remove.GetComponentInChildren<Text>().text = "Removing CO2...";
+        remove.GetComponent<Image>().color = Color.red;
+
+        yield return new WaitForSeconds(Random.Range(3f, 7f));
+
+        resources.TakeCD(30f);
+        resources.TakeElectricity(Random.Range(10f, 15f));
+
+        remove.GetComponentInChildren<Text>().text = "Remove CO2";
+        remove.GetComponent<Image>().color = originColor;
+
+        produce.interactable = true;
+        recycle.interactable = true;
     }
 }
