@@ -7,9 +7,13 @@ public class Resources : MonoBehaviour
 {
     public float food = 50f;
     public float electricity = 50f;
+    public float carbonDioxyde = 0;
+    public float waste = 0;
 
     public Slider foodBar;
     public Slider electricityBar;
+    public Slider wasteBar;
+    public Slider carbonDioxydeBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,34 +25,98 @@ public class Resources : MonoBehaviour
     {
         foodBar.value = food;
         electricityBar.value = electricity;
+        wasteBar.value = waste;
+        carbonDioxydeBar.value = carbonDioxyde;
     }
 
     public float TakeFood(float n)
     {
-        float diff = food - n;
-        if (diff < 0)
+        if (n > 0)
         {
-            float returnValue = food;
-            food = 0;
-            return returnValue;
+            if (n > food)
+            {
+                float returnValue = food;
+                food = 0;
+                return returnValue;
+            } else
+            {
+                food -= n;
+                return n;
+            }
         } else
         {
-            food = diff;
-            return n;
+            food = Mathf.Clamp(food - n, 0, 100);
+            return 0;
         }
     }
 
     public float TakeElectricity(float n)
     {
-        float diff = electricity - n;
-        if (diff < 0)
+        if (n > 0)
         {
-            electricity = 0;
-            return electricity;
-        } else
+            if (n > electricity)
+            {
+                float returnValue = electricity;
+                electricity = 0;
+                return returnValue;
+            }
+            else
+            {
+                electricity -= n;
+                return n;
+            }
+        }
+        else
         {
-            electricity = diff;
-            return electricity;
+            electricity = Mathf.Clamp(electricity - n, 0, 100);
+            return 0;
         }
     }
+
+    public float TakeWaste(float n)
+    {
+        if (n > 0)
+        {
+            if (n > waste)
+            {
+                float returnValue = waste;
+                waste = 0;
+                return returnValue;
+            }
+            else
+            {
+                waste -= n;
+                return n;
+            }
+        }
+        else
+        {
+            waste = Mathf.Clamp(waste - n, 0, 20);
+            return 0;
+        }
+    }
+
+    public float TakeCD(float n)
+    {
+        if (n > 0)
+        {
+            if (n > carbonDioxyde)
+            {
+                float returnValue = carbonDioxyde;
+                carbonDioxyde = 0;
+                return returnValue;
+            }
+            else
+            {
+                carbonDioxyde -= n;
+                return n;
+            }
+        }
+        else
+        {
+            carbonDioxyde = Mathf.Clamp(carbonDioxyde - n, 0, 30);
+            return 0;
+        }
+    }
+
 }
